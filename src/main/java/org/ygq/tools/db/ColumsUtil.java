@@ -19,6 +19,11 @@ import net.sf.jsqlparser.statement.create.table.CreateTable;
 
 public class ColumsUtil {
 
+	/**
+	 * 根据SQL文本文件缩汁的路径解析成Java字段列表
+	 * @param fieldPath
+	 * @return
+	 */
 	public static List<String> createTableScriptToJavaFields(String fieldPath) {
 		
 		Path path = Paths.get(fieldPath);
@@ -54,6 +59,11 @@ public class ColumsUtil {
 		return Collections.emptyList();
 	}
 	
+	/**
+	 * 类型转换器
+	 * @param type
+	 * @return
+	 */
 	private static String converType(String type) {
 
 		switch (type.toUpperCase()) {
@@ -74,13 +84,5 @@ public class ColumsUtil {
 			return type;
 		}
 
-	}
-
-	
-	public static void main(String[] args) {
-		List<String> strList = createTableScriptToJavaFields("E:\\\\file2.txt");
-		for (int i = 0; i < strList.size(); i++) {
-			System.out.println(strList.get(i));
-		}
 	}
 }
