@@ -58,6 +58,10 @@ public class ColumsUtil {
 
 		switch (type.toUpperCase()) {
 		case "CHAR":
+		case "TEXT":
+		case "TINYTEXT":
+		case "MEDIUMTEXT":
+		case "LONGTEXT":
 		case "VARCHAR":
 			return "String";
 		case "DATETIME":
@@ -70,6 +74,8 @@ public class ColumsUtil {
 			return "BigDecimal";
 		case "INT":
 			return "Integer";
+		case "BIGINT":
+			return "LONG";
 		default:
 			return type;
 		}
