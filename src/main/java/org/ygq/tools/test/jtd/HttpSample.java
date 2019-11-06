@@ -7,7 +7,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 
-public class HttpUtil2 {
+public class HttpSample {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		

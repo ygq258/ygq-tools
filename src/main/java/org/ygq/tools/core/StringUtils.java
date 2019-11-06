@@ -4,9 +4,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.Map;
-import java.util.jar.Pack200;
-import java.util.jar.Pack200.Packer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -80,8 +77,7 @@ public class StringUtils {
     		System.out.println(camel2Underline(e).toLowerCase()+" "+e +",");
     	});
     	
-    	Packer newPacker = Pack200.newPacker();
-        String line = "are_you_dou_bi_yellowcong";
+//        String line = "are_you_dou_bi_yellowcong";
 //        //下划线转驼峰（大驼峰）
 //        //AreYouDouBiYellowcong
 //        String camel = underline2Camel(line, false);

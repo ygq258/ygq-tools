@@ -33,7 +33,13 @@ public class FieldsFileCompare {
 		
 	}
 	
-	public List<String> readAndfilterFields(Path path) throws IOException {
+	/**
+	 * 读取文件过滤Java属性，提取属性list
+	 * @param path
+	 * @return
+	 * @throws IOException
+	 */
+	private List<String> readAndfilterFields(Path path) throws IOException {
 		
 		List<String> valueList = new ArrayList<String>();
 		List<String> fields = Files.readAllLines(path);
@@ -56,6 +62,12 @@ public class FieldsFileCompare {
 		return valueList;
 	}
 	
+	/**
+	 * 读取数据库字段，提取字段名
+	 * @param path
+	 * @return
+	 * @throws IOException
+	 */
 	public List<String> readAndfilterColumns(Path path) throws IOException {
 		
 		CCJSqlParserManager sqlParse = new CCJSqlParserManager();
@@ -82,28 +94,12 @@ public class FieldsFileCompare {
 		
 	}
 	
-//	public List<String> readAndfilterColumns(Path path) throws IOException {
-//		
-//		List<String> valueList = new ArrayList<String>();
-//		List<String> fields = Files.readAllLines(path);
-//		
-//		for (int i = 0; i < fields.size(); i++) {
-//			String value = fields.get(i);
-//			if (value == null || value.trim().isEmpty()) {
-//				fields.remove(i--);
-//				continue;
-//			}
-//			value = value.trim();
-//			int end = value.indexOf(" ");
-//			if (end == -1) {
-//				continue;
-//			}
-//			value = value.substring(0, end).replace("`", "");
-//			valueList.add(value);
-//		}
-//		return valueList;
-//	}
-
+	/**
+	 * 比较属性和字段信息
+	 * @param fieldPath
+	 * @param columnPath
+	 * @throws IOException
+	 */
 	public void compare(String fieldPath, String columnPath) throws IOException {
 		
 		List<String> fieldList = readAndfilterFields(Paths.get(fieldPath));
@@ -126,12 +122,17 @@ public class FieldsFileCompare {
 		System.out.println(Arrays.toString(columnsList.toArray()));
 	}
 	
-	
-	public void compareField(String fieldPath, String columnPath) throws IOException {
+	/**
+	 * 对比属性名
+	 * @param fieldPath
+	 * @param fieldPath2
+	 * @throws IOException
+	 */
+	public void compareField(String fieldPath, String fieldPath2) throws IOException {
 		
 		List<String> fieldList = readAndfilterFields(Paths.get(fieldPath));
 		
-		List<String> columnsList = readAndfilterFields(Paths.get(columnPath));
+		List<String> columnsList = readAndfilterFields(Paths.get(fieldPath2));
 		
 		for (int i = 0; i < fieldList.size(); i++) {
 			String value = fieldList.get(i);
